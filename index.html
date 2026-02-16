@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Custodia — Protege. Defende. Conveni.</title>
+  <meta name="description" content="Custodia is a security community connecting students to companies through mentorship, referrals, and vetted talent pipelines." />
+
+  <style>
+    :root{
+      /* Navy / Black / White */
+      --bg:#000000;
+      --bg2:#050a16;
+      --ink:#ffffff;
+      --muted: rgba(255,255,255,.72);
+      --line: rgba(255,255,255,.12);
+
+      /* Accent blues (restrained) */
+      --blue:#1f4bff;
+      --blue2:#0f2bd6;
+
+      /* Steel/navy panels */
+      --panel1:#060b16;
+      --panel2:#050816;
+
+      --max: 1180px;
+      --pad: 28px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--ink);
+      background: var(--bg);
+      letter-spacing:.1px;
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ opacity:.92; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding: 0 var(--pad); }
+
+    /* Minimal fixed header */
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:50;
+      pointer-events:none;
+    }
+    .topbar{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 22px var(--pad);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      pointer-events:auto;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size: 16px;
+      letter-spacing:.2px;
+      opacity:.95;
+      white-space:nowrap;
+    }
+
+    .sigil{
+      width: 18px;
+      height: 18px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.06);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap: 18px;
+      font-size: 12px;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.78);
+    }
+
+    .nav a{
+      padding: 8px 2px;
+      border-bottom: 1px solid transparent;
+    }
+    .nav a:hover{
+      border-bottom-color: rgba(255,255,255,.35);
+      color: rgba(255,255,255,.92);
+    }
+
+    .nav .cta{
+      margin-left: 10px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+    }
+    .nav .cta.primary{
+      border-color: rgba(31,75,255,.35);
+      background: rgba(31,75,255,.16);
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      min-height: 92vh;
+      display:flex;
+      align-items:flex-end;
+      padding: 130px 0 90px;
+      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 62%, #000 100%);
+      overflow:hidden;
+    }
+
+    .heroArt{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      opacity:.96;
+      background:
+        radial-gradient(1100px 600px at 75% 18%, rgba(31,75,255,.20), transparent 60%),
+        radial-gradient(900px 520px at 15% 10%, rgba(255,255,255,.06), transparent 58%),
+        linear-gradient(180deg, rgba(5,10,22,1) 0%, rgba(0,0,0,1) 100%);
+    }
+
+    /* "St Michael" sigil lines + Latin text band */
+    .heroArt::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:
+        radial-gradient(900px 540px at 50% 35%, rgba(255,255,255,.06), transparent 62%),
+        linear-gradient(90deg, rgba(255,255,255,.10), rgba(255,255,255,0));
+      opacity:.55;
+      mask-image: radial-gradient(60% 55% at 50% 35%, #000 55%, transparent 72%);
+      pointer-events:none;
+    }
+
+    .heroArt::after{
+      content:"";
+      position:absolute;
+      inset:-10% -10% auto -10%;
+      height: 86vh;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3Cfilter id='b' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='14'/%3E%3C/filter%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%231f4bff' stop-opacity='.30'/%3E%3Cstop offset='60%25' stop-color='%23ffffff' stop-opacity='.06'/%3E%3Cstop offset='100%25' stop-color='%23000000' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='900' fill='url(%23g)'/%3E%3Cg filter='url(%23b)' fill='none'%3E%3Cpath d='M-60 255 C 260 95, 520 95, 830 255 S 1400 415, 1760 255' stroke='%23ffffff' stroke-opacity='.18' stroke-width='14'/%3E%3Cpath d='M-70 330 C 260 170, 520 170, 830 330 S 1400 490, 1770 330' stroke='%23ffffff' stroke-opacity='.14' stroke-width='10'/%3E%3Cpath d='M-80 405 C 260 245, 520 245, 830 405 S 1400 565, 1780 405' stroke='%231f4bff' stroke-opacity='.18' stroke-width='10'/%3E%3C/g%3E%3Cg filter='url(%23b)' fill='none'%3E%3Ccircle cx='800' cy='260' r='110' stroke='%23ffffff' stroke-opacity='.12' stroke-width='6'/%3E%3Cpath d='M800 125 L800 395' stroke='%23ffffff' stroke-opacity='.16' stroke-width='8'/%3E%3Cpath d='M710 260 L890 260' stroke='%23ffffff' stroke-opacity='.12' stroke-width='6'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+      transform: translateY(-4%);
+      opacity:.82;
+      mix-blend-mode: screen;
+      pointer-events:none;
+    }
+
+    .heroInner{ position:relative; z-index:1; }
+
+    .heroKicker{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      font-size: 12px;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.78);
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      max-width: 980px;
+    }
+
+    .heroTitle{
+      margin: 42px 0 18px;
+      font-size: 86px;
+      line-height: .98;
+      letter-spacing: -2px;
+      font-weight: 500;
+      max-width: 980px;
+    }
+
+    .heroSub{
+      margin: 0 0 12px;
+      color: rgba(255,255,255,.80);
+      font-size: 14px;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      max-width: 980px;
+    }
+
+    .heroCopy{
+      margin: 0;
+      color: rgba(255,255,255,.74);
+      font-size: 20px;
+      line-height: 1.85;
+      max-width: 780px;
+    }
+
+    .heroActions{
+      margin-top: 34px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      font-size: 12px;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.92);
+    }
+    .btn.primary{
+      border-color: rgba(31,75,255,.35);
+      background: rgba(31,75,255,.16);
+    }
+    .btn.ghost{
+      background: transparent;
+      border-color: rgba(255,255,255,.16);
+      color: rgba(255,255,255,.80);
+    }
+
+    /* subtle Latin ribbon */
+    .latinRibbon{
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.58);
+      font-size: 12px;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+      max-width: 980px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px 18px;
+    }
+    .latinRibbon span{
+      padding: 6px 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+    }
+
+    /* blobs */
+    .blob{
+      position:absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 999px;
+      filter: blur(120px);
+      opacity: .55;
+      pointer-events:none;
+    }
+    .blob.b1{ background: rgba(31,75,255,.18); top:-160px; right:-160px; }
+    .blob.b2{ background: rgba(255,255,255,.07); bottom:-220px; left:-220px; }
+
+    /* sections */
+    section{
+      position:relative;
+      padding: 140px 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background:#000;
+    }
+
+    .sectionGrid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 26px;
+      align-items:start;
+    }
+
+    .sectionTitle{
+      grid-column: 1 / span 5;
+      font-size: 96px;
+      letter-spacing: -2px;
+      line-height: 1;
+      font-weight: 500;
+      margin:0;
+    }
+
+    .sectionBody{
+      grid-column: 6 / -1;
+      color: rgba(255,255,255,.72);
+      font-size: 16px;
+      line-height: 1.9;
+      max-width: 72ch;
+    }
+
+    .sectionBody .micro{
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    /* Platform section background */
+    #platform{
+      background:
+        radial-gradient(900px 520px at 70% 25%, rgba(31,75,255,.10), transparent 60%),
+        radial-gradient(700px 420px at 15% 65%, rgba(255,255,255,.06), transparent 62%),
+        #000;
+    }
+
+    .cards{
+      grid-column: 6 / -1;
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+      margin-top: 34px;
+    }
+
+    .card{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      padding: 34px;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -.5px;
+      color: rgba(255,255,255,.92);
+    }
+
+    .card p{
+      margin:0;
+      color: rgba(255,255,255,.70);
+      line-height:1.85;
+    }
+
+    .quote{
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.60);
+      font-size: 13px;
+      line-height: 1.75;
+      font-style: italic;
+    }
+
+    /* Companies section */
+    #companies{
+      background:
+        radial-gradient(900px 520px at 75% 20%, rgba(255,255,255,.08), transparent 60%),
+        radial-gradient(700px 420px at 20% 70%, rgba(31,75,255,.10), transparent 65%),
+        linear-gradient(180deg, var(--panel1) 0%, var(--panel2) 100%);
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+
+    .logoStrip{
+      grid-column: 1 / -1;
+      margin-top: 40px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.02);
+      padding: 26px;
+      overflow:hidden;
+    }
+
+    .logos{
+      display:flex;
+      align-items:center;
+      gap: 34px;
+      white-space: nowrap;
+      overflow-x:auto;
+      scrollbar-width: none;
+    }
+    .logos::-webkit-scrollbar{ display:none; }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height: 46px;
+      min-width: 160px;
+      padding: 0 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.80);
+      font-size: 12px;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.02);
+    }
+
+    /* footer */
+    footer{
+      background:#000;
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 60px 0 70px;
+      color: rgba(255,255,255,.72);
+    }
+
+    .footerGrid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 26px;
+      align-items:end;
+    }
+
+    .footerLeft{ grid-column: 1 / span 6; }
+    .footerRight{ grid-column: 7 / -1; display:flex; justify-content:flex-end; gap:12px; align-items:center; }
+
+    .iconBtn{
+      width: 44px;
+      height: 44px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+
+    .icon{
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: rgba(255,255,255,.80);
+      stroke-width: 1.8;
+    }
+
+    @media (max-width: 980px){
+      header{ position:static; }
+      .topbar{ padding: 18px var(--pad); }
+      .nav{ gap: 12px; flex-wrap:wrap; justify-content:flex-end; }
+      .hero{ padding: 90px 0 70px; min-height: auto; }
+      .heroTitle{ font-size: 52px; }
+      .sectionGrid{ grid-template-columns: 1fr; }
+      .sectionTitle{ grid-column:auto; font-size: 56px; }
+      .sectionBody{ grid-column:auto; }
+      .cards{ grid-column:auto; grid-template-columns: 1fr; }
+      .footerLeft, .footerRight{ grid-column:auto; justify-content:flex-start; }
+      .latinRibbon span{ width: fit-content; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <span class="sigil" aria-hidden="true">✶</span>
+        <span>Custodia</span>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#platform">Community</a>
+        <a href="#companies">Companies</a>
+        <a class="cta" href="https://your-booking-link.com" target="_blank" rel="noreferrer">Book a call</a>
+        <a class="cta primary" href="https://your-form-link.com" target="_blank" rel="noreferrer">Join</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="heroArt" aria-hidden="true"></div>
+
+      <div class="wrap heroInner">
+        <div class="heroKicker">
+          <span>Custodia</span>
+          <span style="font-style:italic; text-transform:none; letter-spacing:.2px; opacity:.9;">
+            Protege. Defende. Conveni.
+          </span>
+        </div>
+
+        <div class="heroSub">In tutela. In veritate. In communitate.</div>
+
+        <h1 class="heroTitle">Defend together.</h1>
+
+        <p class="heroCopy">
+          A security community connecting students to companies through mentorship, referrals, and guidance.
+          For teams, Custodia is vetted talent, signal on what is happening in the security space, and warm intros that move fast.
+        </p>
+
+        <div class="heroActions">
+          <a class="btn primary" href="https://your-form-link.com" target="_blank" rel="noreferrer">Join</a>
+          <a class="btn ghost" href="https://your-booking-link.com" target="_blank" rel="noreferrer">Book a call</a>
+          <a class="btn ghost" href="#platform">How it works</a>
+        </div>
+
+        <div class="latinRibbon" aria-label="Latin principles">
+          <span>Sub umbra alarum</span>
+          <span>Custodiamus invicem</span>
+          <span>Contra periculum</span>
+          <span>In fide et fortitudine</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="blob b1" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="sectionGrid">
+          <h2 class="sectionTitle">About</h2>
+          <div class="sectionBody">
+            <div class="micro">Quid sumus</div>
+            Custodia is a security community platform built for protection, preparation, and real outcomes.
+            We connect students with companies through mentorship, referrals, and clear guidance.
+            We convene people who defend systems, not just talk about them.
+            <div class="quote">“Defende nos in proelio.”</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY / PLATFORM -->
+    <section id="platform">
+      <div class="blob b2" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="sectionGrid">
+          <h2 class="sectionTitle">Community</h2>
+          <div class="sectionBody">
+            <div class="micro">Quomodo operamur</div>
+            A simple loop. Learn with mentors. Build with guidance. Get referred with credibility.
+          </div>
+
+          <div class="cards">
+            <div class="card">
+              <h3>Mentorship.</h3>
+              <p>Students get direct mentorship from practitioners. Clear feedback. Practical direction.</p>
+              <div class="quote">Disciplina. Consilium. Robur.</div>
+            </div>
+
+            <div class="card">
+              <h3>Referrals.</h3>
+              <p>Warm referrals for internships, roles, and security projects. Merit, signal, and trust.</p>
+              <div class="quote">Fides per facta.</div>
+            </div>
+
+            <div class="card">
+              <h3>Guidance.</h3>
+              <p>What to learn, what to build, what matters now. No noise. Just the path.</p>
+              <div class="quote">Lux in tenebris.</div>
+            </div>
+
+            <div class="card">
+              <h3>Gathering.</h3>
+              <p>A group built on protection and service. We move as one. We defend as one.</p>
+              <div class="quote">In communitate, fortitudo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPANIES -->
+    <section id="companies">
+      <div class="wrap">
+        <div class="sectionGrid">
+          <h2 class="sectionTitle">Companies</h2>
+          <div class="sectionBody">
+            <div class="micro">Quid accipitis</div>
+            Seed startups and Series A to C teams work with Custodia for vetted talent, what is happening in the space, and warm intros.
+          </div>
+
+          <div class="logoStrip" aria-label="Offer highlights">
+            <div class="logos">
+              <div class="logo">Vetted Talent</div>
+              <div class="logo">Market Signal</div>
+              <div class="logo">Warm Intros</div>
+              <div class="logo">Students to Teams</div>
+              <div class="logo">Security Community</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrap">
+        <div class="footerGrid">
+          <div class="footerLeft">
+            <div style="font-size:14px; letter-spacing:.2px; color:rgba(255,255,255,.86);">Custodia</div>
+            <div style="margin-top:10px; max-width:72ch; line-height:1.8; color:rgba(255,255,255,.65);">
+              Protege. Defende. Conveni.
+            </div>
+          </div>
+
+          <div class="footerRight" aria-label="Social links">
+            <a class="iconBtn" href="#" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.5 10.5V18M6.5 6.5v.5M10 18v-4.2c0-2.2 1.2-3.3 2.9-3.3 1.6 0 2.6 1 2.6 3.2V18M10 10.5V18" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M5 18h3M9 18h10" stroke-linecap="round"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div style="margin-top:24px; font-size:12px; color:rgba(255,255,255,.45); letter-spacing:.6px;">
+          © <span id="year"></span> Custodia.
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
